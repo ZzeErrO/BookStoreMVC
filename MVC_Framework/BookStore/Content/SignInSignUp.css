@@ -1,0 +1,39 @@
+﻿body {
+}
+
+.BookContainer {
+    width: 100%;
+    height: 82vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BookBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 72.3vh;
+}
+
+.BookContent {
+    display: flex;
+    border: 1px solid #ccc;
+}
+
+.BookINUP {
+    padding: 15px;
+    margin: 8px;
+}
+
+.BookINUP2 {
+    padding: 15px;
+    margin: 8px;
+    border-left: 1px solid #ccc;
+}
+
+.ButtonINUP {
+    background: #9f1f1f;
+    color: white;
+    border-radius: 5px;
+}
