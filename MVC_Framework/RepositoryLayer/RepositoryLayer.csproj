@@ -41,8 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IBooksRL.cs" />
+    <Compile Include="Interface\ICartRL.cs" />
+    <Compile Include="Interface\IOrderRL.cs" />
     <Compile Include="Interface\IUserRL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BooksRL.cs" />
+    <Compile Include="Services\CartRL.cs" />
+    <Compile Include="Services\OrderRL.cs" />
     <Compile Include="Services\UserRL.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -32,7 +32,7 @@ namespace RepositoryLayer.Services
                     {
                         while (dr.Read())
                         {
-                            if (dr["email"].ToString() == register.Email && dr["password"].ToString() == register.Password )
+                            if (dr["email"].ToString() == register.Email && dr["password"].ToString() == password )
                             {
                                 return true;
                             }
