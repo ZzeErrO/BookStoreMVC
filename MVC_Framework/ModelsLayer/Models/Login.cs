@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ModelsLayer.Models
 {
-    public class LoginRegister
+    public class Login
     {
         [Key]
         public int UserId { get; set; }

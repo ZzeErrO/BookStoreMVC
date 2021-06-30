@@ -41,14 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Interface\IUserBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\UserBL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BookStore\BookStore.csproj">
-      <Project>{0e63f44c-70ae-4c43-9f39-37efa18f9199}</Project>
-      <Name>BookStore</Name>
+    <ProjectReference Include="..\ModelsLayer\ModelsLayer.csproj">
+      <Project>{C1F2D21E-0A88-47E0-BF63-25B83EBA9AB8}</Project>
+      <Name>ModelsLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryLayer\RepositoryLayer.csproj">
+      <Project>{0BC50062-BF4C-49C9-AFBD-AF3DE73878A5}</Project>
+      <Name>RepositoryLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
