@@ -13,5 +13,10 @@ namespace BookStore.Controllers
         {
             return View();
         }
+        public ActionResult Order()
+        {
+            return View();
+        }
+
     }
 }

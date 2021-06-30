@@ -1,0 +1,78 @@
+﻿body {
+}
+
+
+.body3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 82vh;
+}
+
+.image3 {
+    height: 225px;
+}
+
+.faltuinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    top: 490px;
+    left: 308px;
+    width: 751px;
+    height: 42px;
+    background: #FAFAFA 0% 0% no-repeat padding-box;
+    border: 1px solid #DCDCDC;
+    opacity: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 0rem !important;
+}
+
+.columneach {
+    top: 490px;
+    left: 308px;
+    width: 248px;
+    height: 70px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #DCDCDC;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font: normal normal medium 12px/15px Lato;
+    font-size: 13px;
+}
+
+.justdoingrow {
+    display: flex;
+}
+
+.columneach2 {
+    top: 490px;
+    left: 308px;
+    width: 250px;
+    height: 70px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #DCDCDC;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font: normal normal medium 12px/15px Lato;
+    font-size: 13px;
+}
+
+.toShop {
+    background-color: #3371B5;
+    color: white;
+}
