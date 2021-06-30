@@ -188,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Cart\" />
     <Folder Include="Views\Order\" />
