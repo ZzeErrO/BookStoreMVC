@@ -39,5 +39,26 @@ namespace BookStore.Controllers
                 return ViewBag.Message = "unsucessfully";
             }
         }
+
+        [HttpPost]
+        public JsonResult AddToCart(Cart cart)
+        {
+            try
+            {
+                var result = this.booksManager.AddToCart(cart);
+                if (result != null)
+                {
+                    return Json(new { status = true, Message = "Book added to cart", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "Book not added to cart", Data = result });
+                }
+            }
+            catch (Exception)
+            {
+                return ViewBag.Message = "sucessfully";
+            }
+        }
     }
 }

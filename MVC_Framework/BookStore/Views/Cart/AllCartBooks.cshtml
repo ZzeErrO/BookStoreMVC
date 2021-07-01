@@ -1,0 +1,145 @@
+﻿@model IEnumerable<ModelsLayer.Models.GetCartBooks>
+
+@{
+    ViewBag.Title = "AllCartBooks";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div style="width:100%;">
+    <div class="Body3">
+
+        <div class="Title"><a href="https://localhost:44380/Books/AllBooks">Home</a>/Cart(@(@Model.Average(b => b.CartId) ))</div>
+
+        <div class="Cart">
+            <div class="heading">My Cart</div>
+
+            <div style="display: flex; flex-direction: column;">
+
+                @foreach (var items in Model)
+                {
+                    <div class="cartitems">
+
+                        <img ID="Image1" src="../../assets/book1.png" class="image2" alt="Book" />
+
+                        <div class="Paper2">
+
+                            <div>@items.BookName</div>
+                            <div class="price">Rs.@items.Price</div>
+
+                            <div class="Quantity10">
+
+                                <input type="text" style="width: 30%;" value="@items.Quantity" name="quantity" />
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+            <div style="display: flex; justify-content: flex-end;">
+                <input type="button" value="Place Order" id="placeorderBtn" Style="width: 20%; background-color: #3371B5; color: white;">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="openDetails" id="div_Customerdetails" style="margin-top: 2%; margin-bottom: 2%; margin-left: 10%;" runat="server">
+        <div class="heading" style="margin-bottom: 2%">Customer Details</div>
+        <div class="takeinput">
+            <div class="giveinput">
+
+                <div>
+                    <input id="Text1" type="text" placeholder="Name" style="width: 30%; margin-bottom: 2%;" />
+                    <input id="Text2" type="text" placeholder="Phone Number" style="width: 30%; margin-left: 20%; margin-bottom: 2%;" />
+                </div>
+
+                <div>
+                    <input id="Text3" type="text" placeholder="Pin Code" style="width: 30%; margin-bottom: 2%;" />
+                    <input id="Text4" type="text" placeholder="Locality" style="width: 30%; margin-left: 20%; margin-bottom: 2%;" />
+                </div>
+
+                <input id="Text5" type="text" placeholder="Address" style="width: 72%; margin-bottom: 2%;" />
+
+                <div>
+                    <input id="Text6" type="text" placeholder="City/Town" style="width: 30%; margin-bottom: 2%;" />
+                    <input id="Text7" type="text" placeholder="LandMark" style="width: 30%; margin-left: 20%; margin-bottom: 2%;" />
+                </div>
+
+                Type:
+                <div style="display: flex; justify-content: space-evenly; align-content: center;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Home
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Work
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Other
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div style="display: flex; justify-content: flex-end;">
+                <input type="button" value="Continue" id="placeorderBtn" Style="width: 20%; background-color: #3371B5; color: white;">
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="Cart" id="div_OrderSummary" style="margin-bottom: 2%;">
+
+        <div class="heading">Order Summary</div>
+
+        @foreach (var items in Model)
+        {
+            <div>
+                <div class="cartitems">
+
+                    <img ID="Image2" src="../../assets/book1.png" class="image2" alt="Book" />
+
+                    <div class="Paper2">
+
+                        <div>@items.BookName</div>
+                        <div class="price">Rs.@items.Price</div>
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+        <div class="Place">
+            <input type="button" value="Checkout" id="checkoutBtn" Style="width: 20%; background-color: #3371B5; color: white;">
+        </div>
+
+    </div>
+
+</div>
+
+    
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

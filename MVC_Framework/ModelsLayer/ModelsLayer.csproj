@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Books.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\GetCartBooks.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

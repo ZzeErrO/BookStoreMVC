@@ -20,5 +20,9 @@ namespace BusinessLayer.Services
         {
             return this.booksRL.GetAllBooks();
         }
+        public Cart AddToCart(Cart cartModel)
+        {
+            return this.booksRL.AddToCart(cartModel);
+        }
     }
 }

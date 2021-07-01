@@ -36,8 +36,9 @@
                                     </div>
                                     <div class="price">Rs.@items.Price</div>
                                     <div class="ButtonsDiv">
-                                        <input type="button" value="Add to Cart" class="AddtoCartbutton" id="addtoCartBtn-@items.BookId">
-                                        <input type="button" value="WishList" class="Wishlistbutton" id="wishlistBtn-@items.BookId">
+                                        <input type="button" value="Add to Cart" class="AddtoCartbutton" id="addtoCartBtn-@items.BookId" onclick="AddToCart(@items.BookId)">
+                                        <input type="button" value="WishList" class="Wishlistbutton" id="wishlistBtn-@items.BookId" onclick="AddToWishList(@items.BookId)">
+                                        <input type="button" value="Added to Cart" class="AddedToCartbutton" style="display: none;" id="addedtocartBtn-@items.BookId">
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,166 @@
+﻿body {
+}
+
+﻿.BookBody3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Title {
+    top: 82px;
+    left: 174px;
+    width: 70px;
+    height: 33px;
+    text-align: left;
+    font: normal normal normal 25px/33px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+    padding-left: 16px;
+}
+
+.row {
+    display: flex;
+}
+
+.quantity {
+    font: normal normal normal 14px/19px Roboto;
+}
+
+.Cart {
+    width: 62%;
+    padding: 10px;
+    border: 1px solid #cfcfcf;
+    margin-left: 10%;
+}
+
+.heading {
+    font-size: 20px;
+    font-family: revert;
+}
+
+.Paper2 {
+    width: 100px;
+    margin-left: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.cartitems {
+    display: flex;
+    margin: 5px;
+}
+
+.PlaceOrder {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Quantity10 {
+    display: flex;
+    align-items: center;
+}
+
+.Details {
+    width: 64%;
+    height: 20px;
+    padding: 15px;
+    border: 1px solid #cfcfcf;
+}
+
+.openDetails {
+    width: 62%;
+    padding: 10px;
+    border: 1px solid #cfcfcf;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.Body2 {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    padding-left: 10%;
+    display: flex;
+    flex-direction: column;
+    min-height: 525px;
+}
+
+.takeinput {
+    display: flex;
+    flex-direction: column;
+}
+
+.giveinput {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.a {
+    height: 50px;
+}
+
+.space1 {
+    height: 20px;
+}
+
+.left {
+    display: flex;
+    justify-content: space-between;
+}
+
+.b {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.Place {
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .Paper2 {
+        width: 100px;
+        margin-left: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .MuiFormControlLabel-root {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 0px;
+        margin-right: 0px;
+        vertical-align: middle;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .buttonsize3 .MuiButtonBase-root.MuiButton-root.MuiButton-contained.buttonsize.MuiButton-containedPrimary.MuiButton-containedSizeSmall.MuiButton-sizeSmall {
+        width: 60px;
+    }
+
+    .openDetails {
+        width: 68%;
+        padding: 25px;
+        border: 1px solid #cfcfcf;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Cart {
+        width: 68%;
+        padding: 25px;
+        border: 1px solid #cfcfcf;
+    }
+}

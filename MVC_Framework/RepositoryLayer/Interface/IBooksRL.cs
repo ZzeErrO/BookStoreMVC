@@ -10,5 +10,6 @@ namespace RepositoryLayer.Interface
     public interface IBooksRL
     {
         List<Books> GetAllBooks();
+        Cart AddToCart(Cart cartModel);
     }
 }

@@ -149,6 +149,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Cart.css" />
     <Content Include="Content\HeaderFooter.css" />
     <Content Include="Content\Order.css" />
     <Content Include="Content\SignInSignUp.css" />
@@ -168,6 +169,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JS\Books.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -187,12 +189,12 @@
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Books\AllBooks.cshtml" />
     <Content Include="Views\Order\Order.cshtml" />
+    <Content Include="Views\Cart\AllCartBooks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
