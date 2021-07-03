@@ -10,5 +10,6 @@ namespace BusinessLayer.Interface
     public interface ICartBL
     {
         List<GetCartBooks> GetAllBooks();
+        bool Checkout();
     }
 }

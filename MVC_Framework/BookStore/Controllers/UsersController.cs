@@ -36,7 +36,7 @@ namespace BookStore.Controllers
                 // return View();
                 if (result == true)
                 {
-                    return RedirectToAction("AllBooks");
+                    return RedirectToAction("AllBooks", "Books");
                 }
                 else
                 {

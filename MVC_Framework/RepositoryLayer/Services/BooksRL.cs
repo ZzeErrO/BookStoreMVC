@@ -69,7 +69,7 @@ namespace RepositoryLayer.Services
                     SqlCommand cmd = new SqlCommand("AddToCart", Connection);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@bookId", cartModel.BookId);
-                    cmd.Parameters.AddWithValue("@userId", cartModel.UserId);
+                    cmd.Parameters.AddWithValue("@userId", 11);
                     cmd.Parameters.AddWithValue("@quantity", cartModel.Quantity);
                     cmd.Parameters.AddWithValue("@email", "abcxyz@gmail.com");
                     Connection.Open();

@@ -39,5 +39,27 @@ namespace BookStore.Controllers
                 throw ex;
             }
         }
+
+        [HttpPost]
+        public JsonResult Checkout(List<Cart> cart)
+        {
+            try
+            {
+                var result = this.cartManager.Checkout();
+                if (result != false)
+                {
+                    RedirectToAction("Order", "Order");
+                    return Json(new { status = true, Message = "Checkout done", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "Checkout problem", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

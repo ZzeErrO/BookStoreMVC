@@ -68,5 +68,37 @@ namespace RepositoryLayer.Services
 
             return BookList;
         }
+
+        public bool Checkout()
+        {
+            SqlConnection Connection1 = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookStore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            try
+            {
+                using (Connection1)
+                {
+                    SqlCommand command = new SqlCommand("spCheckout", Connection1);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@email", "abcxyz@gmail.com");
+
+                    Connection1.Open();
+                    int i = command.ExecuteNonQuery();
+
+                    if (i >= 1)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Connection1.Close();
+            }
+            
+        }
+
     }
 }

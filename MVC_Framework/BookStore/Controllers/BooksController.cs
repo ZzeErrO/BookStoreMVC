@@ -55,9 +55,9 @@ namespace BookStore.Controllers
                     return Json(new { status = false, Message = "Book not added to cart", Data = result });
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return ViewBag.Message = "sucessfully";
+                throw ex;
             }
         }
     }

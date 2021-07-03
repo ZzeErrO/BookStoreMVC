@@ -37,7 +37,6 @@ function AddToCart(bookId) {
     });
 }
 
-
 function AddToWishList(bookId) {
     var addToCartId = "addtoCartBtn-".concat(bookId);
     var addToWishId = "wishlistBtn-".concat(bookId);
@@ -68,6 +67,35 @@ function AddToWishList(bookId) {
             AddedToWishList.style.display = "block"
             // alert("Data has been added successfully.");  
 
+        },
+        error: function () {
+            alert("Error while inserting data");
+        }
+    });
+}
+
+function PlaceOrderbtn() {
+    var PlaceOrderButton = document.getElementById("takeinput1");
+    PlaceOrderButton.style.display = "block";
+}
+
+function Continuebtn() {
+    var ContinueButton = document.getElementById("OrderBooks");
+    ContinueButton.style.display = "block";
+}
+
+function Checkoutbtn() {
+    var requestObject = {};
+    requestObject.UserId = 1;
+    console.log(JSON.stringify(requestObject));
+    $.ajax({
+        type: "POST",
+        url: 'https://localhost:44380/Cart/Checkout',
+        data: JSON.stringify(requestObject),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function () {
+            //Success 
         },
         error: function () {
             alert("Error while inserting data");

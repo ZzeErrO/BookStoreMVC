@@ -10,5 +10,6 @@ namespace RepositoryLayer.Interface
     public interface ICartRL
     {
         List<GetCartBooks> GetAllBooks();
+        bool Checkout();
     }
 }

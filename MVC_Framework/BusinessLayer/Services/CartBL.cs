@@ -16,6 +16,7 @@ namespace BusinessLayer.Services
         {
             this.cartRL = _cartRL;
         }
+
         public List<GetCartBooks> GetAllBooks()
         {
             try
@@ -23,6 +24,18 @@ namespace BusinessLayer.Services
                 return this.cartRL.GetAllBooks();
             }
             catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool Checkout()
+        {
+            try
+            {
+                return this.cartRL.Checkout();
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

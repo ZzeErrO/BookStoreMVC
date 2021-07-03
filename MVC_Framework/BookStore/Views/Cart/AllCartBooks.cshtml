@@ -5,13 +5,10 @@
 }
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
 <div style="width:100%;">
     <div class="Body3">
 
-        <div class="Title"><a href="https://localhost:44380/Books/AllBooks">Home</a>/Cart(@(@Model.Average(b => b.CartId) ))</div>
+        <div class="Title"><a href="https://localhost:44380/Books/AllBooks">Home</a>/Cart</div>
 
         <div class="Cart">
             <div class="heading">My Cart</div>
@@ -42,7 +39,7 @@
 
             </div>
             <div style="display: flex; justify-content: flex-end;">
-                <input type="button" value="Place Order" id="placeorderBtn" Style="width: 20%; background-color: #3371B5; color: white;">
+                <input type="button" value="Place Order" onclick="PlaceOrderbtn()" id="placeorderBtn" Style="width: 20%; background-color: #3371B5; color: white;">
             </div>
 
         </div>
@@ -50,7 +47,7 @@
 
     <div class="openDetails" id="div_Customerdetails" style="margin-top: 2%; margin-bottom: 2%; margin-left: 10%;" runat="server">
         <div class="heading" style="margin-bottom: 2%">Customer Details</div>
-        <div class="takeinput">
+        <div id="takeinput1" class="takeinput" style="display: none;">
             <div class="giveinput">
 
                 <div>
@@ -96,7 +93,7 @@
             </div>
 
             <div style="display: flex; justify-content: flex-end;">
-                <input type="button" value="Continue" id="placeorderBtn" Style="width: 20%; background-color: #3371B5; color: white;">
+                <input type="button" value="Continue" onclick="Continuebtn()" id="placeorderBtn" Style="width: 20%; background-color: #3371B5; color: white;">
             </div>
 
         </div>
@@ -109,35 +106,34 @@
     <div class="Cart" id="div_OrderSummary" style="margin-bottom: 2%;">
 
         <div class="heading">Order Summary</div>
+        <div id="OrderBooks" style="display: none;">
+            @foreach (var items in Model)
+            {
+                <div>
+                    <div class="cartitems">
 
-        @foreach (var items in Model)
-        {
-            <div>
-                <div class="cartitems">
+                        <img ID="Image2" src="../../assets/book1.png" class="image2" alt="Book" />
 
-                    <img ID="Image2" src="../../assets/book1.png" class="image2" alt="Book" />
+                        <div class="Paper2">
 
-                    <div class="Paper2">
+                            <div>@items.BookName</div>
+                            <div class="price">Rs.@items.Price</div>
+                        </div>
 
-                        <div>@items.BookName</div>
-                        <div class="price">Rs.@items.Price</div>
                     </div>
 
                 </div>
+            }
 
+            <div class="Place">
+                <input type="button" value="Checkout" onclick="Checkoutbtn()" id="checkoutBtn" Style="width: 20%; background-color: #3371B5; color: white;">
             </div>
-        }
-
-        <div class="Place">
-            <input type="button" value="Checkout" id="checkoutBtn" Style="width: 20%; background-color: #3371B5; color: white;">
         </div>
-
     </div>
 
 </div>
 
-    
-}
+
 
 
 @section Scripts {
