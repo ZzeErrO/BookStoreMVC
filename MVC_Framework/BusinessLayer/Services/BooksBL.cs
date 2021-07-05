@@ -24,5 +24,9 @@ namespace BusinessLayer.Services
         {
             return this.booksRL.AddToCart(cartModel);
         }
+        public WishList AddToWishList(WishList wishlistModel)
+        {
+            return this.booksRL.AddToWishList(wishlistModel);
+        }
     }
 }

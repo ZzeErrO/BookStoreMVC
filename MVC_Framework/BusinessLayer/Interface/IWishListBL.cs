@@ -7,10 +7,8 @@ using ModelsLayer.Models;
 
 namespace BusinessLayer.Interface
 {
-    public interface IBooksBL
+    public interface IWishListBL
     {
-        List<Books> GetAllBooks();
-        Cart AddToCart(Cart cartModel);
-        WishList AddToWishList(WishList wishlistModel);
+        List<GetWishListBooks> GetAllBooks();
     }
 }

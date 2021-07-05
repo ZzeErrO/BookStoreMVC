@@ -48,13 +48,13 @@ namespace BookStore.Controllers
                 var result = this.cartManager.Checkout();
                 if (result != false)
                 {
-                    RedirectToAction("Order", "Order");
+                    Url.Action("Order", "Order");
                     return Json(new { status = true, Message = "Checkout done", Data = result });
                 }
                 else
                 {
                     return Json(new { status = false, Message = "Checkout problem", Data = result });
-                }
+                }   
             }
             catch (Exception ex)
             {

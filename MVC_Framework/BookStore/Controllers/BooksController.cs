@@ -43,6 +43,9 @@ namespace BookStore.Controllers
         [HttpPost]
         public JsonResult AddToCart(Cart cart)
         {
+            var email = User.Identity.Name;
+            //string email1 = User.FindFirst("email").Value;
+            ViewBag.EMAIL = email;
             try
             {
                 var result = this.booksManager.AddToCart(cart);
@@ -58,6 +61,26 @@ namespace BookStore.Controllers
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+        [HttpPost]
+        public JsonResult AddToWishList(WishList wishList)
+        {
+            try
+            {
+                var result = this.booksManager.AddToWishList(wishList);
+                if (result != null)
+                {
+                    return Json(new { status = true, Message = "Book added to wishList", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "Book not added to wishList", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

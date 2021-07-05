@@ -7,10 +7,8 @@ using ModelsLayer.Models;
 
 namespace RepositoryLayer.Interface
 {
-    public interface IBooksRL
+    public interface IWishListRL
     {
-        List<Books> GetAllBooks();
-        Cart AddToCart(Cart cartModel);
-        WishList AddToWishList(WishList wishlistModel);
+        List<GetWishListBooks> GetAllBooks();
     }
 }

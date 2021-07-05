@@ -90,5 +90,35 @@ namespace RepositoryLayer.Services
                 Connection.Close();
             }
         }
+
+        public WishList AddToWishList(WishList wishlistModel)
+        {
+            try
+            {
+                using (Connection)
+                {
+                    SqlCommand cmd = new SqlCommand("AddToWishList", Connection);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@bookId", wishlistModel.BookId);
+                    cmd.Parameters.AddWithValue("@userId", 11);
+                    cmd.Parameters.AddWithValue("@email", "abcxyz@gmail.com");
+                    Connection.Open();
+                    int i = cmd.ExecuteNonQuery();
+
+                    if (i >= 1)
+                        return wishlistModel;
+                    else
+                        return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
     }
 }

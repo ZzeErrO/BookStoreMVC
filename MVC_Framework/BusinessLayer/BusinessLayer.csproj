@@ -45,11 +45,13 @@
     <Compile Include="Interface\ICartBL.cs" />
     <Compile Include="Interface\IOrderBL.cs" />
     <Compile Include="Interface\IUserBL.cs" />
+    <Compile Include="Interface\IWishListBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BooksBL.cs" />
     <Compile Include="Services\CartBL.cs" />
     <Compile Include="Services\OrderBL.cs" />
     <Compile Include="Services\UserBL.cs" />
+    <Compile Include="Services\WishListBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ModelsLayer\ModelsLayer.csproj">

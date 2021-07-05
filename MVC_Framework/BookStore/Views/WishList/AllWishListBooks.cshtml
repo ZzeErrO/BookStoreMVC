@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ModelsLayer.Models.GetWishListBooks>
+
+@{
+    ViewBag.Title = "AllWishListBooks";
+}
+
+
+<div style="width:100%;">
+    <div class="Body3">
+
+        <div class="Title"><a href="https://localhost:44380/Books/AllBooks">Home</a>/WishList(@ViewBag.Count)</div>
+
+        <div class="Cart">
+            <div class="heading">My WishList</div>
+
+            <div style="display: flex; flex-direction: column;">
+
+                @foreach (var items in Model)
+                {
+                <div class="cartitems">
+
+                    <img ID="Image1" src="../../assets/book1.png" class="image2" alt="Book" />
+
+                    <div class="Paper2">
+
+                        <div>@items.BookName</div>
+                        <div class="by">
+                            by
+                            <label>@items.Authors</label>
+                        </div>
+                        <div class="price">Rs.@items.Price</div>
+
+                    </div>
+
+                    <div style="display: flex; align-items: flex-end;">
+                        <input type="button" value="Add to Cart" onclick="ToCartbtn()" id="placeorderBtn" Style="height: 20%; background-color: #3371B5; color: white;">
+                    </div>
+
+                </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+</div>

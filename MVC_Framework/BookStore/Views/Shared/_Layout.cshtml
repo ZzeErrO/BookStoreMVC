@@ -30,9 +30,10 @@
                 </svg>
                 <div style="color: white; font-size: 11px;"><a style="color: white;" href="https://localhost:44380/Cart/AllCartBooks">Cart</a></div>
             </div>
-            <asp:Label ID="CartCount" style="color: white;" runat="server" Text="Label"></asp:Label>
+            @ViewBag.Count
         </div>
         <div style="color: white;"><a href="https://localhost:44380/Users/Login" style="color: white;">Login</a>/<a style="color: white;" href="https://localhost:44380/Users/Register">Register</a></div>
+    @ViewBag.EMAIL
     </div>
     <div class="BookBody">
         @RenderBody()

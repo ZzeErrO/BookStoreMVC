@@ -54,18 +54,7 @@ function AddToWishList(bookId) {
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function () {
-            //Onclick AddToWishList button hide AddToCart button
-            var AddToCartButton = document.getElementById(addToCartId);
-            AddToCartButton.style.display = "none";
-
-            //Onclick AddToWishList button hide WishList button
-            var AddToWishListButton = document.getElementById(addToWishId);
-            AddToWishListButton.style.display = "none";
-
-            //Onclick AddToWishList button show WishListed button
-            var AddedToWishList = document.getElementById(addedToWishList);
-            AddedToWishList.style.display = "block"
-            // alert("Data has been added successfully.");  
+            
 
         },
         error: function () {
