@@ -10,7 +10,7 @@
     @Html.AntiForgeryToken()
     
     <div class="BookBody2">
-        <div class="Title">Books(@(@Model.Average(b => b.BookId) * 2 - 1))</div>
+        <div class="Title">Books(@(@Model.Average(b => b.BookId) * 2 - 1)) (@ViewBag.Email)  </div>
 
         <div class="AllBooks">
             <div style="display: flex; flex-wrap: wrap; margin-left: 7%; margin-right:7%;">

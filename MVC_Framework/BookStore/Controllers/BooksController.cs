@@ -28,6 +28,9 @@ namespace BookStore.Controllers
         [HttpGet]
         public ActionResult AllBooks(Books book)
         {
+            var email = User.Identity.IsAuthenticated;
+            ViewBag.Email = email;
+
             try
             {
                 var result = this.booksManager.GetAllBooks();
@@ -43,9 +46,6 @@ namespace BookStore.Controllers
         [HttpPost]
         public JsonResult AddToCart(Cart cart)
         {
-            var email = User.Identity.Name;
-            //string email1 = User.FindFirst("email").Value;
-            ViewBag.EMAIL = email;
             try
             {
                 var result = this.booksManager.AddToCart(cart);
