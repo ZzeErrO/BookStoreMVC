@@ -10,7 +10,7 @@
     @Html.AntiForgeryToken()
     
     <div class="BookBody2">
-        <div class="Title">Books(@(@Model.Average(b => b.BookId) * 2 - 1)) (@ViewBag.Email)  </div>
+        <div class="Title">Books(@(@Model.Average(b => b.BookId) * 2 - 1)) (@ViewBag.Token)  </div>
 
         <div class="AllBooks">
             <div style="display: flex; flex-wrap: wrap; margin-left: 7%; margin-right:7%;">
@@ -19,7 +19,7 @@
                         <div class="card">
                             <div style="width: 190px;">
                                 <div class="Imageblock">
-                                    <img class="image2" src="../../assets/book1.png" alt="Book" />
+                                    <img class="image2" src=@items.ImagePath alt="Book" />
                                 </div>
                                 <div class="Intro">
 

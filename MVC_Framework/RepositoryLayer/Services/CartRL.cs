@@ -44,7 +44,8 @@ namespace RepositoryLayer.Services
                                 BookName = Convert.ToString(dr["bookName"]),
                                 Authors = Convert.ToString(dr["authors"]),
                                 Price = Convert.ToInt32(dr["price"]),
-                                Quantity = Convert.ToInt32(dr["quantity"])
+                                Quantity = Convert.ToInt32(dr["quantity"]),
+                                ImagePath = Convert.ToString(dr["imagePath"])
                             }
                         );
                         }

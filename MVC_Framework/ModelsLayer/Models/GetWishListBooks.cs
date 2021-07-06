@@ -15,5 +15,6 @@ namespace ModelsLayer.Models
         public string BookName { get; set; }
         public string Authors { get; set; }
         public double Price { get; set; }
+        public string ImagePath { get; set; }
     }
 }

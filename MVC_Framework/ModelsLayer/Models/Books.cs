@@ -24,5 +24,7 @@ namespace ModelsLayer.Models
         public DateTime Arrivals { get; set; }
         [Required]
         public int AvailabeBooks { get; set; }
+        [Required]
+        public string ImagePath { get; set; }
     }
 }

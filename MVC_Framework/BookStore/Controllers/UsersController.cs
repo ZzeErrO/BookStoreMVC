@@ -59,7 +59,7 @@ namespace BookStore.Controllers
                 var tokenString = tokenHandler.WriteToken(token);
 
                 var result = this.userManager.Login(login);
-                ViewBag.Message = "User login successfull";
+                ViewBag.Token = tokenString;
                 // return View();
                 if (result == true)
                 {

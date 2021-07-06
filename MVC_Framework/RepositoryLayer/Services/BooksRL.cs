@@ -34,15 +34,18 @@ namespace RepositoryLayer.Services
                         while (dr.Read())
                         {
                             BookList.Add( new Books
-                        {
+
+                            {
                             BookId = Convert.ToInt32(dr["bookId"]),
                             BookName = Convert.ToString(dr["bookName"]),
                             Price = Convert.ToInt32(dr["price"]),
                             Category = Convert.ToString(dr["category"]),
                             Authors = Convert.ToString(dr["authors"]),
                             Arrivals = Convert.ToDateTime(dr["arrivals"]),
-                            AvailabeBooks = Convert.ToInt32(dr["availableBooks"])
-                        }
+                            AvailabeBooks = Convert.ToInt32(dr["availableBooks"]),
+                            ImagePath = Convert.ToString(dr["imagePath"])
+                        
+                            }
                         );
                         }
                     }

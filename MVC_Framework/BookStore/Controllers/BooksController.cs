@@ -30,8 +30,8 @@ namespace BookStore.Controllers
         [HttpGet]
         public ActionResult AllBooks(Books book)
         {
-            var email = User.Identity.IsAuthenticated;
-            ViewBag.Email = email;
+            //var email = User.Identity.IsAuthenticated;
+            //ViewBag.Email = email;
 
             try
             {
