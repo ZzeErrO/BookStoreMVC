@@ -28,5 +28,9 @@ namespace BusinessLayer.Services
         {
             return this.booksRL.AddToWishList(wishlistModel);
         }
+        public bool UploadImage(int BookId, string imageUpload)
+        {
+            return this.booksRL.UploadImage(BookId, imageUpload);
+        }
     }
 }

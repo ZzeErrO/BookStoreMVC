@@ -12,5 +12,7 @@ namespace RepositoryLayer.Interface
         List<Books> GetAllBooks();
         Cart AddToCart(Cart cartModel);
         WishList AddToWishList(WishList wishlistModel);
+        bool UploadImage(int BookId, string imageUpload);
+
     }
 }

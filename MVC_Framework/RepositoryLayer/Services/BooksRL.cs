@@ -120,5 +120,23 @@ namespace RepositoryLayer.Services
                 Connection.Close();
             }
         }
+
+        public bool UploadImage(int BookId, string imageUpload)
+        {/*
+            Connection();
+            SqlCommand cmd = new SqlCommand("sp_AddImage", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@BookId", BookId);
+            // var myAccount = new Account { ApiKey = "371652781151548", ApiSecret = "1aVBjz0E-GdsHlguqwgk_spEyCo", Cloud = "dywhtr8hk" };
+            cmd.Parameters.AddWithValue("@Image", imageUpload);
+            connection.Open();
+            int i = cmd.ExecuteNonQuery();
+            connection.Close();
+            if (i >= 1)
+                return true;
+
+            else*/
+                return false;
+        }
     }
 }
