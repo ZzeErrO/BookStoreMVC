@@ -1,4 +1,5 @@
-﻿
+﻿const { Dropdown } = require("bootstrap");
+
 function AddToCart(bookId) {
 
     var addToCartId = "addtoCartBtn-".concat(bookId);
@@ -90,4 +91,15 @@ function Checkoutbtn() {
             alert("Error while inserting data");
         }
     });
+}
+
+function DropdownOpenClose() {
+    var Dropdowninout = document.getElementById("dropdownmenu");
+
+    if (Dropdowninout.style.display == "none") {
+        Dropdowninout.style.display = "block";
+    }
+    else {
+        Dropdowninout.style.display = "none";
+    }
 }
