@@ -63,7 +63,19 @@ namespace BookStore.Controllers
                 // return View();
                 if (result == true)
                 {
-                    return RedirectToAction("AllBooks", "Books");
+                    //return RedirectToAction("AllBooks", "Books");
+                    Login tokenvalue = new Login()
+                    {
+                        Token = tokenString
+                    };
+
+                    return new JsonResult()
+                    {
+                        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                        Data = new { result = "success" }
+                };
+
+                    //return this.View("Login", tokenvalue);
                 }
                 else
                 {

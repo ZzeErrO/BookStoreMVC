@@ -11,6 +11,7 @@ using ModelsLayer.Models;
 
 namespace BookStore.Controllers
 {
+    [Authorize]
     public class BooksController : Controller
     {
         private readonly IBooksBL booksManager;

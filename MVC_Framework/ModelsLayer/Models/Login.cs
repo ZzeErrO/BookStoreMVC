@@ -19,5 +19,7 @@ namespace ModelsLayer.Models
         [Required]
         [RegularExpression("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", ErrorMessage = "Invalid Password")]
         public string Password { get; set; }
+
+        public string Token { get; set; }
     }
 }

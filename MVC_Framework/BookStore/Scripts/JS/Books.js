@@ -103,3 +103,9 @@ function DropdownOpenClose() {
         Dropdowninout.style.display = "none";
     }
 }
+
+function TokenSave(tokenString) {
+    sessionStorage.setItem("token", token);
+    window.location.href = '" + Url.Action("AllBooks", "Books") + "';
+    
+}

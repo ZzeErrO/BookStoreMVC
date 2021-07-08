@@ -286,6 +286,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WishListController.cs" />
     <Compile Include="Global.asax.cs">
@@ -341,6 +342,7 @@
     <Content Include="Views\Order\Order.cshtml" />
     <Content Include="Views\Cart\AllCartBooks.cshtml" />
     <Content Include="Views\WishList\AllWishListBooks.cshtml" />
+    <Content Include="Views\Search\SearchBooks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

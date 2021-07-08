@@ -63,6 +63,54 @@ namespace RepositoryLayer.Services
             return BookList;
         }
 
+        public List<Books> GetSearchBooks(string value)
+        {
+            List<Books> BookList = new List<Books>();
+
+            try
+            {
+                using (Connection)
+                {
+                    SqlCommand cmd = new SqlCommand("spSearch", Connection);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@value", value);
+                    Connection.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    //Console.WriteLine("----------TABLE FOR BOOKS----------");
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            BookList.Add(new Books
+
+                            {
+                                BookId = Convert.ToInt32(dr["bookId"]),
+                                BookName = Convert.ToString(dr["bookName"]),
+                                Price = Convert.ToInt32(dr["price"]),
+                                Category = Convert.ToString(dr["category"]),
+                                Authors = Convert.ToString(dr["authors"]),
+                                Arrivals = Convert.ToDateTime(dr["arrivals"]),
+                                AvailabeBooks = Convert.ToInt32(dr["availableBooks"]),
+                                ImagePath = Convert.ToString(dr["imagePath"])
+
+                            }
+                        );
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return BookList;
+        }
+
         public Cart AddToCart(Cart cartModel)
         {
             try

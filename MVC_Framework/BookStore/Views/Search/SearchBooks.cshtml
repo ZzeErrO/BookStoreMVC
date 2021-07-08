@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ModelsLayer.Models.Books>
+
+@{
+    ViewBag.Title = "SearchBooks";
+}
+
+<h2>SearchBooks</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="BookBody2">
+    <div class="Title">Books(@(@Model.Average(b => b.BookId) * 2 - 1)) </div>
+
+    <div class="AllBooks">
+        <div style="display: flex; flex-wrap: wrap; margin-left: 7%; margin-right:7%;">
+            @foreach (var items in Model)
+            {
+                <div class="card">
+                    <div style="width: 190px;">
+                        <div class="Imageblock">
+                            <img class="image2" src=@items.ImagePath alt="Book" />
+                        </div>
+                        <div class="Intro">
+
+                            <div class="bookName">@items.BookName </div>
+                            <div class="by">
+                                by
+                                <label>@items.Authors</label>
+                            </div>
+                            <div class="rating">
+                                <div class="rate">4.5</div>
+                                <div class="number">
+                                    @items.AvailabeBooks
+                                </div>
+                            </div>
+                            <div class="price">Rs.@items.Price</div>
+                            <div class="ButtonsDiv">
+                                <input type="button" value="Add to Cart" class="AddtoCartbutton" id="addtoCartBtn-@items.BookId" onclick="AddToCart(@items.BookId)">
+                                <input type="button" value="WishList" class="Wishlistbutton" id="wishlistBtn-@items.BookId" onclick="AddToWishList(@items.BookId)">
+                                <input type="button" value="Added to Cart" class="AddedToCartbutton" style="display: none; background: #9f1f1f; color: white; width: 100%;" id="addedtocartBtn-@items.BookId">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
