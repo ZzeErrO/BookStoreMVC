@@ -9,7 +9,7 @@ namespace RepositoryLayer.Interface
 {
     public interface ICartRL
     {
-        List<GetCartBooks> GetAllBooks();
+        List<GetCartBooks> GetAllBooks(string email);
         bool Checkout(string email);
     }
 }

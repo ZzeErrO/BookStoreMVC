@@ -9,7 +9,7 @@ namespace BusinessLayer.Interface
 {
     public interface ICartBL
     {
-        List<GetCartBooks> GetAllBooks();
+        List<GetCartBooks> GetAllBooks(string email);
         bool Checkout(string email);
     }
 }

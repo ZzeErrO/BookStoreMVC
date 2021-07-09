@@ -19,7 +19,7 @@ function AddToCart(bookId) {
             url: 'https://localhost:44380/Books/AddToCart',
             headers: {
                 'Content-Type': 'application/json',
-                'Authentication': 'Bearer ' + sessionStorage.getItem("token")
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
             },
             data: JSON.stringify(requestObject),
             dataType: "json",
@@ -61,6 +61,10 @@ function AddToWishList(bookId) {
         $.ajax({
             type: "POST",
             url: 'https://localhost:44380/Books/AddToWishList',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+            },
             data: JSON.stringify(requestObject),
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -96,6 +100,10 @@ function Checkoutbtn() {
         $.ajax({
             type: "POST",
             url: 'https://localhost:44380/Cart/Checkout',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+            },
             data: JSON.stringify(requestObject),
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -120,5 +128,30 @@ function DropdownOpenClose() {
     }
     else {
         Dropdowninout.style.display = "none";
+    }
+}
+
+
+function CartBooks() {
+    if (sessionStorage.getItem("token") == null) {
+        window.location.href = 'https://localhost:44380/Users/Login';
+    } else {
+
+        $.ajax({
+            type: "GET",
+            url: 'https://localhost:44380/Cart/AllCartBooks',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+            },
+            dataType: "json",
+            success: function () {
+                //Success 
+            },
+            error: function () {
+                alert("Error while inserting data");
+            }
+        });
+
     }
 }

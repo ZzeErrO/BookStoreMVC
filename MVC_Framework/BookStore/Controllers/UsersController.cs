@@ -64,10 +64,6 @@ namespace BookStore.Controllers
                 if (result == true)
                 {
                     //return RedirectToAction("AllBooks", "Books");
-                    Login tokenvalue = new Login()
-                    {
-                        Token = tokenString
-                    };
 
                     return new JsonResult()
                     {

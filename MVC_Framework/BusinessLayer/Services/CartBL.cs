@@ -17,11 +17,11 @@ namespace BusinessLayer.Services
             this.cartRL = _cartRL;
         }
 
-        public List<GetCartBooks> GetAllBooks()
+        public List<GetCartBooks> GetAllBooks(string email)
         {
             try
             {
-                return this.cartRL.GetAllBooks();
+                return this.cartRL.GetAllBooks(email);
             }
             catch(Exception ex)
             {
