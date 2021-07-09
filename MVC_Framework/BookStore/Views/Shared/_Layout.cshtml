@@ -59,12 +59,5 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/JS/Books.js")
     @RenderSection("scripts", required: false)
-    <script type="text/javascript">
-        var TokenSave = function () {
-            alert("successful");
-            sessionStorage.setItem("token", token);
-            window.location.href = '" + Url.Action("AllBooks", "Books") + "';
-        };
-    </script>
 </body>
 </html>

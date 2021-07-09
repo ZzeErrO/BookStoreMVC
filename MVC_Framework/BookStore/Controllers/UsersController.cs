@@ -37,7 +37,7 @@ namespace BookStore.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Login login)
+        public JsonResult Login(Login login)
         {
             try
             {
@@ -72,19 +72,26 @@ namespace BookStore.Controllers
                     return new JsonResult()
                     {
                         JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                        Data = new { result = "success" }
-                };
+                        Data = new { result = "success", Token = tokenString }
+                    };
 
                     //return this.View("Login", tokenvalue);
                 }
                 else
                 {
-                    return RedirectToAction("Login");
+                    return new JsonResult()
+                    {
+                        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                        Data = new { result = "failure" }
+                    };
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return ViewBag.Message = "User login unsuccessfull";
+                return new JsonResult()
+                {
+                    Data = ex.Message
+                };
             }
         }
 
