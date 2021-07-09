@@ -29,11 +29,11 @@ namespace BusinessLayer.Services
             }
         }
 
-        public bool Checkout()
+        public bool Checkout(string email)
         {
             try
             {
-                return this.cartRL.Checkout();
+                return this.cartRL.Checkout(email);
             }
             catch (Exception ex)
             {

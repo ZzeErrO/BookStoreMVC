@@ -111,19 +111,52 @@ namespace RepositoryLayer.Services
             return BookList;
         }
 
-        public Cart AddToCart(Cart cartModel)
+        public Cart AddToCart(Cart cartModel, string email)
         {
+
             try
             {
-                using (Connection) 
+                using (Connection)
                 {
-                    SqlCommand cmd = new SqlCommand("AddToCart", Connection);
+                    string query = @"select * from users ";
+                    SqlCommand command = new SqlCommand(query, Connection);
+                    Connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+                    //Console.WriteLine("----------TABLE FOR BOOKS----------");
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            if (Convert.ToString(dr["email"]) == email)
+                            {
+                                cartModel.UserId = Convert.ToInt32(dr["userId"]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            SqlConnection Connection1 = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookStore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+            try
+            {
+                using (Connection1) 
+                {
+                    SqlCommand cmd = new SqlCommand("AddToCart", Connection1);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@bookId", cartModel.BookId);
-                    cmd.Parameters.AddWithValue("@userId", 11);
+                    cmd.Parameters.AddWithValue("@userId", cartModel.UserId);
                     cmd.Parameters.AddWithValue("@quantity", cartModel.Quantity);
-                    cmd.Parameters.AddWithValue("@email", "abcxyz@gmail.com");
-                    Connection.Open();
+                    cmd.Parameters.AddWithValue("@email", email);
+                    Connection1.Open();
                     int i = cmd.ExecuteNonQuery();
 
                     if (i >= 1)
@@ -138,24 +171,56 @@ namespace RepositoryLayer.Services
             }
             finally
             {
-                Connection.Close();
+                Connection1.Close();
             }
         }
 
-        public WishList AddToWishList(WishList wishlistModel)
+        public WishList AddToWishList(WishList wishlistModel, string email)
         {
             try
             {
                 using (Connection)
                 {
-                    SqlCommand cmd = new SqlCommand("AddToWishList", Connection);
+                    string query = @"select * from users ";
+                    SqlCommand command = new SqlCommand(query, Connection);
+                    Connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+                    //Console.WriteLine("----------TABLE FOR BOOKS----------");
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            if (Convert.ToString(dr["email"]) == email)
+                            {
+                                wishlistModel.UserId = Convert.ToInt32(dr["userId"]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            SqlConnection Connection1 = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookStore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+            try
+            {
+                using (Connection1)
+                {
+                    SqlCommand cmd = new SqlCommand("AddToWishList", Connection1);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@bookId", wishlistModel.BookId);
-                    cmd.Parameters.AddWithValue("@userId", 11);
-                    cmd.Parameters.AddWithValue("@email", "abcxyz@gmail.com");
-                    Connection.Open();
+                    cmd.Parameters.AddWithValue("@userId", wishlistModel.UserId);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    Connection1.Open();
                     int i = cmd.ExecuteNonQuery();
-
+                    
                     if (i >= 1)
                         return wishlistModel;
                     else
@@ -168,7 +233,7 @@ namespace RepositoryLayer.Services
             }
             finally
             {
-                Connection.Close();
+                Connection1.Close();
             }
         }
 

@@ -70,7 +70,7 @@ namespace RepositoryLayer.Services
             return BookList;
         }
 
-        public bool Checkout()
+        public bool Checkout(string email)
         {
             SqlConnection Connection1 = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookStore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             try
@@ -79,7 +79,7 @@ namespace RepositoryLayer.Services
                 {
                     SqlCommand command = new SqlCommand("spCheckout", Connection1);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@email", "abcxyz@gmail.com");
+                    command.Parameters.AddWithValue("@email", email);
 
                     Connection1.Open();
                     int i = command.ExecuteNonQuery();

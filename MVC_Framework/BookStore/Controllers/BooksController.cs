@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -11,7 +12,6 @@ using ModelsLayer.Models;
 
 namespace BookStore.Controllers
 {
-    [Authorize]
     public class BooksController : Controller
     {
         private readonly IBooksBL booksManager;
@@ -47,40 +47,57 @@ namespace BookStore.Controllers
             }
         }
 
+        [Authorize]
         [HttpPost]
         public JsonResult AddToCart(Cart cart)
         {
             try
             {
-                var result = this.booksManager.AddToCart(cart);
-                if (result != null)
+                var identity = User.Identity as ClaimsIdentity;
+
+                if (identity != null)
                 {
-                    return Json(new { status = true, Message = "Book added to cart", Data = result });
+                    IEnumerable<Claim> claims = identity.Claims;
+                    var email = claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").FirstOrDefault()?.Value;
+
+                    var result = this.booksManager.AddToCart(cart, email);
+
+                    if (result != null)
+                    {
+                        return Json(new { status = true, Message = "Book added to cart", Data = result });
+                    }
                 }
-                else
-                {
-                    return Json(new { status = false, Message = "Book not added to cart", Data = result });
-                }
+
+                return Json(new { status = false, Message = "Book not added to cart" });
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+        [Authorize]
         [HttpPost]
         public JsonResult AddToWishList(WishList wishList)
         {
             try
             {
-                var result = this.booksManager.AddToWishList(wishList);
-                if (result != null)
+                var identity = User.Identity as ClaimsIdentity;
+
+                if (identity != null)
                 {
-                    return Json(new { status = true, Message = "Book added to wishList", Data = result });
+                    IEnumerable<Claim> claims = identity.Claims;
+                    var email = claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").FirstOrDefault()?.Value;
+
+                    var result = this.booksManager.AddToWishList(wishList, email);
+                    if (result != null)
+                    {
+                        return Json(new { status = true, Message = "Book added to wishList", Data = result });
+                    }
                 }
-                else
-                {
-                    return Json(new { status = false, Message = "Book not added to wishList", Data = result });
-                }
+
+                return Json(new { status = false, Message = "Book not added to wishList" });
             }
             catch (Exception ex)
             {

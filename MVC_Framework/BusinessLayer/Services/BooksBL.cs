@@ -24,13 +24,13 @@ namespace BusinessLayer.Services
         {
             return this.booksRL.GetSearchBooks(value);
         }
-        public Cart AddToCart(Cart cartModel)
+        public Cart AddToCart(Cart cartModel, string email)
         {
-            return this.booksRL.AddToCart(cartModel);
+            return this.booksRL.AddToCart(cartModel, email);
         }
-        public WishList AddToWishList(WishList wishlistModel)
+        public WishList AddToWishList(WishList wishlistModel, string email)
         {
-            return this.booksRL.AddToWishList(wishlistModel);
+            return this.booksRL.AddToWishList(wishlistModel, email);
         }
         public bool UploadImage(int BookId, string imageUpload)
         {
