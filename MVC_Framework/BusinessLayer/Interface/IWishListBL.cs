@@ -10,5 +10,6 @@ namespace BusinessLayer.Interface
     public interface IWishListBL
     {
         List<GetWishListBooks> GetAllBooks(string email);
+        Boolean DeleteWishBook(int id);
     }
 }

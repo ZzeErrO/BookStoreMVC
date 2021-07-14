@@ -16,11 +16,24 @@ namespace BusinessLayer.Services
         {
             this.wishlistRL = _cartRL;
         }
+
         public List<GetWishListBooks> GetAllBooks(string email)
         {
             try
             {
                 return this.wishlistRL.GetAllBooks(email);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool DeleteWishBook(int id)
+        {
+            try
+            {
+                return this.wishlistRL.DeleteWishBook(id);
             }
             catch (Exception ex)
             {

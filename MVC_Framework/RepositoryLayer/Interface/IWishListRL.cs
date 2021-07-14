@@ -10,5 +10,6 @@ namespace RepositoryLayer.Interface
     public interface IWishListRL
     {
         List<GetWishListBooks> GetAllBooks(string email);
+        Boolean DeleteWishBook(int id);
     }
 }

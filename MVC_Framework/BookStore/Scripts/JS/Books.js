@@ -131,6 +131,50 @@ function DropdownOpenClose() {
     }
 }
 
+function DeleteWishBook(id) {
+
+    if (sessionStorage.getItem("token") == null) {
+        window.location.href = 'https://localhost:44380/Users/Login';
+    } else {
+        var requestObject = {};
+        requestObject.WishListId = id;
+        console.log(JSON.stringify(requestObject));
+        $.ajax({
+            type: "DELETE",
+            url: 'https://localhost:44380/WishList/DeleteWishBook',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+            },
+            data: JSON.stringify(requestObject),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function () {
+                //success
+
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://localhost:44380/WishList/AllWishListBooks",
+                    "method": "GET",
+                    "headers": {
+                        "content-type": "application/json",
+                        "authorization": "Bearer " + sessionStorage.getItem("token"),
+                    }
+                }
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response)
+                    $("#BookBody2").html(response);
+                });
+            },
+            error: function () {
+                console.log("Error while inserting data");
+            }
+        });
+    }
+}
+
 $('#ToCart').click(function () {
 
     var settings = {

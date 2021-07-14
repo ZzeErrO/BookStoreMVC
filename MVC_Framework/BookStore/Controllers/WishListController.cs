@@ -38,6 +38,33 @@ namespace BookStore.Controllers
 
             return this.HttpNotFound();
         }
+        [Authorize]
+        [HttpDelete]
+        public JsonResult DeleteWishBook(GetWishListBooks book)
+        {
+            try
+            {
+                var identity = User.Identity as ClaimsIdentity;
 
+                if (identity != null)
+                {
+                    IEnumerable<Claim> claims = identity.Claims;
+                    var email = claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").FirstOrDefault()?.Value;
+
+                    var result = this.wishlistManager.DeleteWishBook(book.WishListId);
+
+                    if (result != false)
+                    {
+                        return Json(new { status = true, Message = "Checkout done", Data = result });
+                    }
+                }
+                return Json(new { status = false, Message = "Checkout problem" });
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
