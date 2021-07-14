@@ -16,11 +16,11 @@ namespace BusinessLayer.Services
         {
             this.wishlistRL = _cartRL;
         }
-        public List<GetWishListBooks> GetAllBooks()
+        public List<GetWishListBooks> GetAllBooks(string email)
         {
             try
             {
-                return this.wishlistRL.GetAllBooks();
+                return this.wishlistRL.GetAllBooks(email);
             }
             catch (Exception ex)
             {

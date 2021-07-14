@@ -9,6 +9,6 @@ namespace RepositoryLayer.Interface
 {
     public interface IWishListRL
     {
-        List<GetWishListBooks> GetAllBooks();
+        List<GetWishListBooks> GetAllBooks(string email);
     }
 }

@@ -41,8 +41,8 @@
             <div style="color: white; font-size: 11px; position: relative;" onclick="DropdownOpenClose()">Person</div>
             <div id="dropdownmenu" style="display: none; background-color: white; position: absolute; padding: 10px;">
                 <div>Hello User</div>
-                <div><a href="https://localhost:44380/WishList/AllWishListBooks" style="color: black;">WishList</a></div>
-                <div><a href="https://localhost:44380/Users/Login" style="color: black;">Logout</a></div>
+                <div><a style="color: black;" id="ToWishList">WishList</a></div>
+                <div><a style="color: black;" id="Logout">Logout</a></div>
             </div>
         </div>
         @if(ViewBag.Token == null) {

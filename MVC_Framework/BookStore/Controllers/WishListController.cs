@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLayer.Interface;
@@ -21,24 +22,22 @@ namespace BookStore.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult AllWishListBooks()
         {
-            return View();
+            var identity = User.Identity as ClaimsIdentity;
+
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+                var email = claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").FirstOrDefault()?.Value;
+
+                List<GetWishListBooks> cartBooks = this.wishlistManager.GetAllBooks(email);
+                return PartialView("AllWishListBooks", cartBooks);
+            }
+
+            return this.HttpNotFound();
         }
 
-        [HttpGet]
-        public ActionResult AllWishListBooks(GetWishListBooks books)
-        {
-            try
-            {
-                var result = this.wishlistManager.GetAllBooks();
-                ViewBag.Message = "";
-                return View(result);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
     }
 }

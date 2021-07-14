@@ -38,34 +38,6 @@ namespace BookStore.Controllers
             return this.HttpNotFound();
         }
 
-        //[HttpGet]
-        /*public ActionResult CartBooks()
-        {
-            try
-            {
-                var identity = User.Identity as ClaimsIdentity;
-
-                if (identity != null)
-                {
-                    IEnumerable<Claim> claims = identity.Claims;
-                    var email = claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").FirstOrDefault()?.Value;
-
-                    var result = this.cartManager.GetAllBooks(email);
-                    
-                    ViewBag.Message = "";
-                    return View("AllCartBooks", result);
-                }
-                //var result1 = this.cartManager.GetAllBooks("abcxyz@gmail.com");
-                ViewBag.Message = "";
-                return RedirectToAction("Login", "Users"); 
-                
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }*/
-
         [Authorize]
         [HttpPost]
         public JsonResult Checkout(List<Cart> cart)

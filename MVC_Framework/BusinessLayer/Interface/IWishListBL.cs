@@ -9,6 +9,6 @@ namespace BusinessLayer.Interface
 {
     public interface IWishListBL
     {
-        List<GetWishListBooks> GetAllBooks();
+        List<GetWishListBooks> GetAllBooks(string email);
     }
 }

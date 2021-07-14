@@ -18,7 +18,7 @@ namespace RepositoryLayer.Services
 
         }
 
-        public List<GetWishListBooks> GetAllBooks()
+        public List<GetWishListBooks> GetAllBooks(string email)
         {
             List<GetWishListBooks> BookList = new List<GetWishListBooks>();
             try
@@ -27,7 +27,7 @@ namespace RepositoryLayer.Services
                 {
                     SqlCommand command = new SqlCommand("spGetWishListBooks", Connection);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@email", "pqrstu@gmail.com");
+                    command.Parameters.AddWithValue("@email", email);
 
                     Connection.Open();
                     SqlDataReader dr = command.ExecuteReader();
