@@ -22,14 +22,14 @@
             <div class="BookHeaderContent" runat="server">BookStore</div>
         </div>
 
-        <input id="Text1" type="text" style="width: 40%" onchange="Search()"/>
+        <input id="Search" type="text" style="width: 40%" onchange="Search()" />
 
         <div style="display: flex;">
             <div style="display: flex; flex-direction: column;">
                 <svg xmlns="http://www.w3.org/2000/svg" runat="server" width="25" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16" style="color:white;">
                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                 </svg>
-                <div style="color: white; font-size: 11px;"><a style="color: white;" href="https://localhost:44380/Cart/AllCartBooks">Cart</a></div>
+                <div style="color: white; font-size: 11px;"><a style="color: white;" id="ToCart">Cart</a></div>
             </div>
             @ViewBag.Count
         </div>
@@ -45,7 +45,9 @@
                 <div><a href="https://localhost:44380/Users/Login" style="color: black;">Logout</a></div>
             </div>
         </div>
+        @if(ViewBag.Token == null) {
         <div style="color: white;"><a href="https://localhost:44380/Users/Login" style="color: white;">Login</a>/<a style="color: white;" href="https://localhost:44380/Users/Register">Register</a></div>
+        }
     </div>
     <div class="BookBody">
         @RenderBody()

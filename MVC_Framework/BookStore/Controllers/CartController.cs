@@ -22,13 +22,24 @@ namespace BookStore.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult AllCartBooks()
         {
-            return View();
+            var identity = User.Identity as ClaimsIdentity;
+
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+                var email = claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").FirstOrDefault()?.Value;
+
+                List<GetCartBooks> cartBooks = this.cartManager.GetAllBooks(email);
+                return PartialView("CartBooks", cartBooks);
+            }
+            return this.HttpNotFound();
         }
 
-        [HttpGet]
-        public ActionResult AllCartBooks(GetCartBooks books)
+        //[HttpGet]
+        /*public ActionResult CartBooks()
         {
             try
             {
@@ -42,17 +53,18 @@ namespace BookStore.Controllers
                     var result = this.cartManager.GetAllBooks(email);
                     
                     ViewBag.Message = "";
-                    return View(result);
+                    return View("AllCartBooks", result);
                 }
-                var result1 = this.cartManager.GetAllBooks("abcxyz@gmail.com");
+                //var result1 = this.cartManager.GetAllBooks("abcxyz@gmail.com");
                 ViewBag.Message = "";
-                return View(result1);
+                return RedirectToAction("Login", "Users"); 
+                
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-        }
+        }*/
 
         [Authorize]
         [HttpPost]

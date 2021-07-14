@@ -370,7 +370,7 @@
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Books\AllBooks.cshtml" />
     <Content Include="Views\Order\Order.cshtml" />
-    <Content Include="Views\Cart\AllCartBooks.cshtml" />
+    <Content Include="Views\Shared\CartBooks.cshtml" />
     <Content Include="Views\WishList\AllWishListBooks.cshtml" />
     <Content Include="Views\Search\SearchBooks.cshtml" />
   </ItemGroup>
@@ -378,6 +378,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="assets\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

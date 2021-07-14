@@ -1,4 +1,4 @@
-﻿const { Dropdown } = require("bootstrap");
+﻿//const { Dropdown } = require("bootstrap");
 
 function AddToCart(bookId) {
 
@@ -40,7 +40,7 @@ function AddToCart(bookId) {
 
             },
             error: function () {
-                alert("Error while inserting data");
+                console.log("Error while inserting data");
             }
         });
     }
@@ -73,7 +73,7 @@ function AddToWishList(bookId) {
 
             },
             error: function () {
-                alert("Error while inserting data");
+                console.log("Error while inserting data");
             }
         });
     }
@@ -111,7 +111,7 @@ function Checkoutbtn() {
                 //Success 
             },
             error: function () {
-                alert("Error while inserting data");
+                console.log("Error while inserting data");
             }
         });
 
@@ -137,7 +137,9 @@ function CartBooks() {
         window.location.href = 'https://localhost:44380/Users/Login';
     } else {
 
-        $.ajax({
+        var settings = {
+            async: true,
+            crossDomain: true,
             type: "GET",
             url: 'https://localhost:44380/Cart/AllCartBooks',
             headers: {
@@ -145,13 +147,54 @@ function CartBooks() {
                 'Authorization': 'Bearer ' + sessionStorage.getItem("token")
             },
             dataType: "json",
-            success: function () {
-                //Success 
-            },
-            error: function () {
-                alert("Error while inserting data");
-            }
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            $("#BookBody2").html(response);
         });
 
     }
 }
+
+
+$('#ToCart').click(function () {
+    /*$.ajax({
+        type: "GET",
+        url: 'https://localhost:44380/Cart/AllCartBooks',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+        },
+        dataType: "json",
+        success: function (response) {
+            //Success 
+            console.log("success: " + response);
+            $("#BookBody2").html(response);
+        },
+        error: function (response) {
+            console.log(response);
+            console.log("Error while inserting data");
+        }
+    });*/
+
+
+    //var id = $(val).data('assigned-id');
+    //console.log("id=>", val)
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://localhost:44380/Cart/AllCartBooks",
+        "method": "GET",
+        "headers": {
+            "content-type": "application/json",
+            "authorization": "Bearer " + sessionStorage.getItem("token"),
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response)
+        $("#BookBody2").html(response);
+    });
+
+})
